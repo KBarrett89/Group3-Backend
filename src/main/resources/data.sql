@@ -1,6 +1,6 @@
-drop table user_authority;
-drop table `user`;
-drop table authority;
+drop table if exists user_authority;
+drop table if exists `user`;
+drop table if exists authority;
 
 CREATE TABLE authority (
     id BIGINT NOT NULL AUTO_INCREMENT,
@@ -27,6 +27,6 @@ alter table user_authority add constraint FKpqlsjpkybgos9w2svcri7j8xy foreign ke
 INSERT INTO `authority`(`name`) VALUES ('ROLE_ADMIN');
 INSERT INTO `authority`(`name`) VALUES ('ROLE_USER');
 
-INSERT INTO `user` (`username`, `password`,`created`) VALUES ('admin','$2a$10$yEdGQZARP4sE26cM2m35YeoCvlBi7xkw.JFN/LOdgMM6mgLerSEsy','2015-11-15 22:14:54');
+INSERT INTO `user` (`username`, `password`,`created`) VALUES ('admin','$2a$10$yPwmsvxuhjKzXy2XvDV5BeMQaMzFa/hm8FScXY6nEi1n9gG3NdhuS','2015-11-15 22:14:54');
 
 INSERT INTO `user_authority`(`authority_id`, `user_id`) VALUES (1, 1);
