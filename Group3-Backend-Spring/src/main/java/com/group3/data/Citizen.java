@@ -1,4 +1,4 @@
-package KB;
+package com.group3.data;
 
 public class Citizen {
 

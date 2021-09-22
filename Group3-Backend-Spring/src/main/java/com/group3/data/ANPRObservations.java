@@ -1,4 +1,4 @@
-package KB;
+package com.group3.data;
 import java.time.LocalDateTime;
 
 public class ANPRObservations {
