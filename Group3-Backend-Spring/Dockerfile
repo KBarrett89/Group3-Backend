@@ -1,5 +1,9 @@
 FROM maven:3-openjdk-11
-Copy . .
-RUN mvn build
+COPY . .
+RUN mvn install
+
+FROM openjdk:11
+COPY --from=0 /build/target/Group3-Backend-Spring-0.0.0.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]]
 
 
