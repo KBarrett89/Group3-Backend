@@ -2,8 +2,8 @@ version: "3.8"
 services:
   backend:
     image: backend
-      build: ./Group3-Backend-Spring
-      ports:
-      - target: 8080
-        published: 8080
+    build: ./Group3-Backend-Spring
+    ports:
+    - target: 8080
+      published: 8080
 
