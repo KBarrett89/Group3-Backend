@@ -6,5 +6,10 @@ pipeline {
 				sh 'docker-compose build'
 			}
 		}
+		stage('deploy'){
+			steps {
+				sh 'docker-compose run'
+			}
+		}
 	}
 }
