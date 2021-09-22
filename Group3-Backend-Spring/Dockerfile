@@ -1,5 +1,6 @@
 FROM maven:3-openjdk-11
-COPY . .
+COPY . ./build
+WORKDIR /build
 RUN mvn install
 
 FROM openjdk:11
