@@ -1,4 +1,4 @@
-package com.javainuse.springbootsecurity.model;
+package com.group3.model;
 
 public class AuthenticationResponse {
 
