@@ -1,4 +1,4 @@
-package dto;
+package com.group3.data;
 
 import java.time.LocalDateTime;
 
