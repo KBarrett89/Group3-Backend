@@ -1,10 +1,14 @@
 package com.group3.data;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class VehicleRegistration {
@@ -25,6 +29,9 @@ public class VehicleRegistration {
 	private String address;
 	private String dateOfBirth;
 	private String driverLicenceID;
+	
+	@OneToMany
+	private ANPRObservations ANPRObservations;
 
 	public VehicleRegistration(Long registrationID, String registrationDate, Long vehicleRegistrationNO, String make,
 			String model, String colour, String forename, String surname, String address, String dateOfBirth,
@@ -136,3 +143,5 @@ public class VehicleRegistration {
 	}
 
 }
+
+	

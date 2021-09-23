@@ -1,10 +1,23 @@
 package com.group3.data;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+
+@Entity
 public class ANPRCamera {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String streetName;
 	private Double latitude;
 	private Double longitude;
+	
+	@ManyToMany(mappedBy ="ANPRObservations")
+	//?? - priateList<Kitten> kittens; - do I need a ANPR Observations list here??
 
 	public ANPRCamera(String streetName, Double latitude, Double longitude) {
 		super();
