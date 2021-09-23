@@ -16,10 +16,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
             "Content-Type": "application/x-www-form-urlencoded"
         }
     }).then(response => {
+        const auth = response.headers.get('authorization');
+        if (auth) {
+            window.sessionStorage.setItem('jwt', auth);
+            console.log(sessionStorage.getItem('jwt'));
+        }
         if(response.status === 200) {
             window.location = "../index.html";    
         }
-    }).catch(error => {
-        debugger;
-    });
+    }).catch(error => console.error(error));
 });
