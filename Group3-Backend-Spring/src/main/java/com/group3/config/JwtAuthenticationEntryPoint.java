@@ -1,4 +1,4 @@
-package com.javainuse.springbootsecurity.config;
+package com.group3.config;
 
 import java.io.IOException;
 import java.util.Collections;
