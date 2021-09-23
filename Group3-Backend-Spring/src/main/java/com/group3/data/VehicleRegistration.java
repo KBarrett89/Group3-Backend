@@ -1,12 +1,24 @@
 package com.group3.data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class VehicleRegistration {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long registrationID;
 	private String registrationDate;
 	private Long vehicleRegistrationNO;
+	@Column(name = "carMake", unique = true)
 	private String make;
+	@Column(name = "carModel", unique = true)
 	private String model;
+	@Column(name = "carColour", unique = true)
 	private String colour;
 	private String forename;
 	private String surname;
