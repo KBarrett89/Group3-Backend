@@ -1,27 +1,41 @@
 package com.group3.data;
+
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ANPRObservations {
 
-	private Integer ANPRPointId;
+	@Id
+	private Long ANPRPointId;
 	private LocalDateTime timeStamp;
+	private String vehicleRegistrationNumber;
 
-	public ANPRObservations(Integer aNPRPointId, LocalDateTime timeStamp) {
+	public ANPRObservations(Long ANPRPointId, LocalDateTime timeStamp, String vehicleRegistrationNumber) {
 		super();
-		ANPRPointId = aNPRPointId;
+		this.ANPRPointId = ANPRPointId;
 		this.timeStamp = timeStamp;
+		this.vehicleRegistrationNumber = vehicleRegistrationNumber;
+	}
+
+	public ANPRObservations(LocalDateTime timeStamp, String vehicleRegistrationNumber) {
+		super();
+		this.timeStamp = timeStamp;
+		this.vehicleRegistrationNumber = vehicleRegistrationNumber;
 	}
 
 	public ANPRObservations() {
 
 	}
 
-	public Integer getANPRPointId() {
+	public Long getANPRPointId() {
 		return ANPRPointId;
 	}
 
-	public void setANPRPointId(Integer aNPRPointId) {
-		ANPRPointId = aNPRPointId;
+	public void setANPRPointId(Long ANPRPointId) {
+		this.ANPRPointId = ANPRPointId;
 	}
 
 	public LocalDateTime getTimeStamp() {
@@ -30,6 +44,14 @@ public class ANPRObservations {
 
 	public void setTimeStamp(LocalDateTime timeStamp) {
 		this.timeStamp = timeStamp;
+	}
+
+	public String getVehicleRegistrationNumber() {
+		return vehicleRegistrationNumber;
+	}
+
+	public void setVehicleRegistrationNumber(String vehicleRegistrationNumber) {
+		this.vehicleRegistrationNumber = vehicleRegistrationNumber;
 	}
 
 }

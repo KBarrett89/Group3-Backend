@@ -1,5 +1,7 @@
 package com.group3.data;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +14,8 @@ public class VehicleRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long registrationID;
-	private String registrationDate;
-	private Long vehicleRegistrationNO;
+	private LocalDateTime registrationDate;
+	private String vehicleRegistrationNO;
 	@Column(name = "carMake", unique = true)
 	private String make;
 	@Column(name = "carModel", unique = true)
@@ -26,11 +28,27 @@ public class VehicleRegistration {
 	private String dateOfBirth;
 	private String driverLicenceID;
 
-	public VehicleRegistration(Long registrationID, String registrationDate, Long vehicleRegistrationNO, String make,
-			String model, String colour, String forename, String surname, String address, String dateOfBirth,
-			String driverLicenceID) {
+	public VehicleRegistration(Long registrationID, LocalDateTime registrationDate, String vehicleRegistrationNO,
+			String make, String model, String colour, String forename, String surname, String address,
+			String dateOfBirth, String driverLicenceID) {
 		super();
 		this.registrationID = registrationID;
+		this.registrationDate = registrationDate;
+		this.vehicleRegistrationNO = vehicleRegistrationNO;
+		this.make = make;
+		this.model = model;
+		this.colour = colour;
+		this.forename = forename;
+		this.surname = surname;
+		this.address = address;
+		this.dateOfBirth = dateOfBirth;
+		this.driverLicenceID = driverLicenceID;
+	}
+
+	public VehicleRegistration(LocalDateTime registrationDate, String vehicleRegistrationNO, String make, String model,
+			String colour, String forename, String surname, String address, String dateOfBirth,
+			String driverLicenceID) {
+		super();
 		this.registrationDate = registrationDate;
 		this.vehicleRegistrationNO = vehicleRegistrationNO;
 		this.make = make;
@@ -55,19 +73,19 @@ public class VehicleRegistration {
 		this.registrationID = registrationID;
 	}
 
-	public String getRegistrationDate() {
+	public LocalDateTime getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(String registrationDate) {
+	public void setRegistrationDate(LocalDateTime registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 
-	public Long getVehicleRegistrationNO() {
+	public String getVehicleRegistrationNO() {
 		return vehicleRegistrationNO;
 	}
 
-	public void setVehicleRegistrationNO(Long vehicleRegistrationNO) {
+	public void setVehicleRegistrationNO(String vehicleRegistrationNO) {
 		this.vehicleRegistrationNO = vehicleRegistrationNO;
 	}
 

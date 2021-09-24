@@ -8,6 +8,6 @@ public interface VehicleServices {
 
 	public List<VehicleRegistration> getVehicleReg();
 
-	public List<VehicleRegistration> getVehicleRegByPlate(int plate);
+	public List<VehicleRegistration> getVehicleRegByPlate(String plate);
 
 }

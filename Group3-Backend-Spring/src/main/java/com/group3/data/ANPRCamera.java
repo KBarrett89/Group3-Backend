@@ -1,7 +1,16 @@
 package com.group3.data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class ANPRCamera {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long anprId;
 	private String streetName;
 	private Double latitude;
 	private Double longitude;
@@ -15,6 +24,14 @@ public class ANPRCamera {
 
 	public ANPRCamera() {
 
+	}
+
+	public Long getAnprId() {
+		return anprId;
+	}
+
+	public void setAnprId(Long anprId) {
+		this.anprId = anprId;
 	}
 
 	public String getStreetName() {

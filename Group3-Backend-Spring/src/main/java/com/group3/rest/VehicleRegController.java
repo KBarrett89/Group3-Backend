@@ -40,7 +40,7 @@ public class VehicleRegController {
 	}
 
 	@GetMapping("/getVehicleRegByPlate/{plate}")
-	public List<VehicleRegistration> getVehicleRegByPlate(@PathVariable int plate) {
+	public List<VehicleRegistration> getVehicleRegByPlate(@PathVariable String plate) {
 		return regServices.getVehicleRegByPlate(plate);
 	}
 
