@@ -3,7 +3,7 @@ pipeline {
 
 	environment{
 		DOCKER_ACCESS_TOKEN = credentials('DockerHubAccessToken')
-		MANAGER_SSH_KEY = credentials('managerSsh')
+		MANAGER_SSH_KEY = credentials('managerSSH')
 	}
 
 	stages {
@@ -22,7 +22,7 @@ pipeline {
 		stage('deploy'){
 			steps {
 				sh 'scp -i "${MANAGER_SSH_KEY}" docker-compose.yaml jenkins@11.0.2.123:~'
-            	sh 'ssh -i "${MANAGER_SSH_KEY}" jenkins@11.0.2.11 "docker stack deploy --compose-file docker-compose.yaml project-stack"'
+            	sh 'ssh -i "${MANAGER_SSH_KEY}" jenkins@11.0.2.123 "docker stack deploy --compose-file docker-compose.yaml project-stack"'
 			}
 		}
 	}
