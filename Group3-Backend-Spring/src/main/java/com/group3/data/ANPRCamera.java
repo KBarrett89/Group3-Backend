@@ -16,8 +16,8 @@ public class ANPRCamera {
 	private Double latitude;
 	private Double longitude;
 	
-	@ManyToMany(mappedBy ="ANPRObservations")
-	//?? - priateList<Kitten> kittens; - do I need a ANPR Observations list here??
+	@OneToMany(mappedBy ="ANPRObservations")
+	private List<ANPRObservations> ANPRObservations;
 
 	public ANPRCamera(String streetName, Double latitude, Double longitude) {
 		super();

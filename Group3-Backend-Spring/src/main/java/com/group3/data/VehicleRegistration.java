@@ -31,7 +31,7 @@ public class VehicleRegistration {
 	private String driverLicenceID;
 	
 	@OneToMany
-	private ANPRObservations ANPRObservations;
+	private List<ANPRObservations> ANPRObservations;
 
 	public VehicleRegistration(Long registrationID, String registrationDate, Long vehicleRegistrationNO, String make,
 			String model, String colour, String forename, String surname, String address, String dateOfBirth,
@@ -144,4 +144,3 @@ public class VehicleRegistration {
 
 }
 
-	
