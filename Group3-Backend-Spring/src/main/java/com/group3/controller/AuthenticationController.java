@@ -1,4 +1,4 @@
-package com.javainuse.springbootsecurity.controller;
+package com.group3.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,18 +17,20 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javainuse.springbootsecurity.config.CustomUserDetailsService;
-import com.javainuse.springbootsecurity.config.JwtUtil;
-import com.javainuse.springbootsecurity.model.AuthenticationRequest;
-import com.javainuse.springbootsecurity.model.AuthenticationResponse;
+import com.group3.config.CustomUserDetailsService;
+import com.group3.config.JwtUtil;
+import com.group3.model.AuthenticationRequest;
+import com.group3.model.AuthenticationResponse;
 
 import io.jsonwebtoken.impl.DefaultClaims;
 
+@CrossOrigin
 @RestController
 public class AuthenticationController {
 
