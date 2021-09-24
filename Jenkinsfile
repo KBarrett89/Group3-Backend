@@ -16,7 +16,7 @@ pipeline {
 		stage('upload image'){
 			steps {
 				sh 'docker login -u sjknapp -p "${MANAGER_SSH_KEY}"'
-				sh 'docker push sjknapp/Group3-bankend:latest'
+				sh 'docker push sjknapp/group3-bankend:latest'
 			}
 		}
 		stage('deploy'){
