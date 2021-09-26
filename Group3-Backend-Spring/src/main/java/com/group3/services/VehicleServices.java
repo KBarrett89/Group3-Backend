@@ -1,13 +1,9 @@
 package com.group3.services;
 
-import java.util.List;
-
-import com.group3.data.VehicleRegistration;
+import com.group3.data.InfoDTO;
 
 public interface VehicleServices {
 
-	public List<VehicleRegistration> getVehicleReg();
-
-	public List<VehicleRegistration> getVehicleRegByPlate(String plate);
+	public InfoDTO getVehicleRegByPlate(String plate);
 
 }

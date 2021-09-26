@@ -1,9 +1,12 @@
 package com.group3.data;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ANPRCamera {
@@ -14,6 +17,9 @@ public class ANPRCamera {
 	private String streetName;
 	private Double latitude;
 	private Double longitude;
+
+	@OneToMany(mappedBy = "ANPRPointId")
+	private List<ANPRObservations> ANPRObservations;
 
 	public ANPRCamera(String streetName, Double latitude, Double longitude) {
 		super();
@@ -56,5 +62,13 @@ public class ANPRCamera {
 
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+
+	public List<ANPRObservations> getANPRObservations() {
+		return ANPRObservations;
+	}
+
+	public void setANPRObservations(List<ANPRObservations> aNPRObservations) {
+		ANPRObservations = aNPRObservations;
 	}
 }

@@ -1,13 +1,19 @@
 package com.group3.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.group3.data.ANPRObservations;
 import com.group3.data.Citizen;
+import com.group3.data.InfoDTO;
+import com.group3.data.PersonDTO;
+import com.group3.data.SightingDTO;
 import com.group3.data.SubscriberRecords;
+import com.group3.data.VehicleDTO;
 import com.group3.data.VehicleRegistration;
 import com.group3.data.repos.ANPRCameraRepo;
 import com.group3.data.repos.ANPRObservationsRepo;
@@ -36,92 +42,77 @@ public class VehicleRegDB implements VehicleServices {
 	}
 
 	@Override
-	public List<VehicleRegistration> getVehicleReg() {
-//		Demo Object
+	public InfoDTO getVehicleRegByPlate(String plate) {
 
-//		VehicleRegistration vehicleReg = new VehicleRegistration(1000345L, "01/01/2000", 1000234234234243L, "audi", "8",
-//				"black", "jon", "smith", "1 jonsmith road", "01/01/2000", "300");
-//		List<VehicleRegistration> regList = new ArrayList<>();
-//		regList.add(vehicleReg);
-//		return regList;
+		InfoDTO dto = new InfoDTO();
+		PersonDTO person = new PersonDTO();
+		VehicleDTO vehicle = new VehicleDTO();
 
-//		Reality DB
-
-		return this.repo.findAll();
-	}
-
-	@Override
-	public List<VehicleRegistration> getVehicleRegByPlate(String plate) {
-//		Demo Object
-//		VehicleRegistration truReg = null;
-//
-//		VehicleRegistration vehicleReg = new VehicleRegistration(1000345L, "01/01/2000", 1000234234234243L, "audi", "8",
-//				"black", "jon", "smith", "1 jonsmith road", "01/01/2000", "300");
-//		List<VehicleRegistration> regList = new ArrayList<>();
-//		regList.add(vehicleReg);
-
-//		Reality DB
-
+		VehicleRegistration targetReg = new VehicleRegistration();
 		List<VehicleRegistration> targetRegList = getVehicleReg(plate);
-
-		VehicleRegistration targetReg = null;
 		for (int i = 0; i < targetRegList.size(); i++) {
-			if (targetRegList.get(i).getVehicleRegistrationNO() == plate) {
+			if (targetRegList.get(i).getVehicleRegistrationNO().equals(plate)) {
 				targetReg = targetRegList.get(i);
 			}
 		}
 
+		person.setForename(targetReg.getForename());
+		person.setSurname(targetReg.getSurname());
+		person.setAddress(targetReg.getAddress());
+		person.setDateOfBirth(targetReg.getDateOfBirth());
+		person.setDriverLicenceID(targetReg.getDriverLicenceID());
+
+		vehicle.setVehicleRegistrationNO(targetReg.getVehicleRegistrationNO());
+		vehicle.setRegistrationID(targetReg.getRegistrationID());
+		vehicle.setRegistrationDate(targetReg.getRegistrationDate());
+		vehicle.setMake(targetReg.getMake());
+		vehicle.setModel(targetReg.getModel());
+		vehicle.setColour(targetReg.getColour());
+
 		String forename = targetReg.getForename();
-		String surname = targetReg.getSurname();
 		String address = targetReg.getAddress();
-		String dateOfBirth = targetReg.getDateOfBirth();
-		String driverLicenceID = targetReg.getDriverLicenceID();
+		LocalDateTime dateOfBirth = targetReg.getDateOfBirth();
 
-		String vehicleRegistrationNumber = targetReg.getVehicleRegistrationNO();
-		Long registrationID = targetReg.getRegistrationID();
-		LocalDateTime registrationDate = targetReg.getRegistrationDate();
-		String make = targetReg.getMake();
-		String model = targetReg.getModel();
-		String colour = targetReg.getColour();
-
-		Citizen citizen = null;
-		List<Citizen> targetForename = getCitizenByForename(forename);
-		List<Citizen> targetSurname = getCitizenBySurname(surname);
-		for (int i = 0; i < targetForename.size(); i++) {
-			for (int j = 0; j < targetSurname.size(); j++) {
-				if (targetForename.get(i).getForename() == targetSurname.get(j).getForename()) {
-					citizen = targetForename.get(i);
+		Citizen citizen = new Citizen();
+		List<Citizen> targetAddress = getCitizenByAddress(address);
+		List<Citizen> targetDateOfBirth = getCitizenByDateOfBirth(dateOfBirth);
+		for (int i = 0; i < targetAddress.size(); i++) {
+			for (int j = 0; j < targetDateOfBirth.size(); j++) {
+				if (targetAddress.get(i).getHomeAddress() == targetDateOfBirth.get(j).getHomeAddress()) {
+					citizen = targetAddress.get(i);
 				}
 			}
 		}
 
-		Long citizenID = citizen.getCitizenID();
-		String placeOfBirth = citizen.getPlaceOfBirth();
+		person.setCitizenID(citizen.getCitizenID());
+		person.setPlaceOfBirth(citizen.getPlaceOfBirth());
 
-		SubscriberRecords targetSub = null;
+		SubscriberRecords targetSub = new SubscriberRecords();
 		List<SubscriberRecords> targetRecord = getSubscriberByForename(forename);
 		for (int i = 0; i < targetRecord.size(); i++) {
-			if (targetRecord.get(i).getForename() == forename) {
+			if (targetRecord.get(i).getForename().equals(forename)) {
 				targetSub = targetRecord.get(i);
 			}
 		}
 
-		String phoneNumber = targetSub.getPhoneNumber();
+		person.setPhoneNumber(targetSub.getPhoneNumber());
 
-		System.out.println(phoneNumber);
+		List<SightingDTO> sightings = new ArrayList<>();
+		List<ANPRObservations> observations = getObservationByPlate(plate);
+		for (int i = 0; i < observations.size(); i++) {
+			SightingDTO sighting = new SightingDTO();
+			sighting.setTimeStamp(observations.get(i).getTimeStamp());
+			sighting.setStreetName(observations.get(i).getANPRCamera().getStreetName());
+			sighting.setLatitude(observations.get(i).getANPRCamera().getLatitude());
+			sighting.setLongitude(observations.get(i).getANPRCamera().getLongitude());
+			sightings.add(sighting);
+		}
 
-		return targetRegList;
+		dto.setPerson(person);
+		dto.setSightingList(sightings);
+		dto.setVehicle(vehicle);
 
-//	    Demo
-
-//		Perform next search
-
-//		Reality DB
-
-//		forenameList = return this.repo.findByNameIgnoreCase(forename);
-//		surnameList = return this.repo.findByNameIgnoreCase(surname);
-
-//		then find common denominator
+		return dto;
 
 	}
 
@@ -129,16 +120,20 @@ public class VehicleRegDB implements VehicleServices {
 		return this.repo.findByVehicleRegistrationNO(plate);
 	}
 
-	public List<Citizen> getCitizenByForename(String forename) {
-		return this.citizenRepo.findByForename(forename);
+	public List<Citizen> getCitizenByAddress(String address) {
+		return this.citizenRepo.findByHomeAddress(address);
 	}
 
-	public List<Citizen> getCitizenBySurname(String surname) {
-		return this.citizenRepo.findBySurname(surname);
+	public List<Citizen> getCitizenByDateOfBirth(LocalDateTime dateOfBirth) {
+		return this.citizenRepo.findByDateOfBirth(dateOfBirth);
 	}
 
 	public List<SubscriberRecords> getSubscriberByForename(String forename) {
-		return this.subRepo.findSubByForename(forename);
+		return this.subRepo.findByForename(forename);
+	}
+
+	public List<ANPRObservations> getObservationByPlate(String plate) {
+		return this.observationsRepo.findByVehicleRegistrationNO(plate);
 	}
 
 }

@@ -10,6 +10,6 @@ import com.group3.data.SubscriberRecords;
 @Repository
 public interface SubscriberRecordsRepo extends JpaRepository<SubscriberRecords, Integer> {
 
-	List<SubscriberRecords> findSubByForename(String forename);
+	List<SubscriberRecords> findByForename(String forename);
 
 }

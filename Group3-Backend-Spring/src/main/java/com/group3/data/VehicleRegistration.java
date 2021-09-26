@@ -25,12 +25,12 @@ public class VehicleRegistration {
 	private String forename;
 	private String surname;
 	private String address;
-	private String dateOfBirth;
+	private LocalDateTime dateOfBirth;
 	private String driverLicenceID;
 
 	public VehicleRegistration(Long registrationID, LocalDateTime registrationDate, String vehicleRegistrationNO,
 			String make, String model, String colour, String forename, String surname, String address,
-			String dateOfBirth, String driverLicenceID) {
+			LocalDateTime dateOfBirth, String driverLicenceID) {
 		super();
 		this.registrationID = registrationID;
 		this.registrationDate = registrationDate;
@@ -46,7 +46,7 @@ public class VehicleRegistration {
 	}
 
 	public VehicleRegistration(LocalDateTime registrationDate, String vehicleRegistrationNO, String make, String model,
-			String colour, String forename, String surname, String address, String dateOfBirth,
+			String colour, String forename, String surname, String address, LocalDateTime dateOfBirth,
 			String driverLicenceID) {
 		super();
 		this.registrationDate = registrationDate;
@@ -137,11 +137,11 @@ public class VehicleRegistration {
 		this.address = address;
 	}
 
-	public String getDateOfBirth() {
+	public LocalDateTime getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
