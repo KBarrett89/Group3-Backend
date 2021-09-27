@@ -15,48 +15,41 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
-	
+public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
 	@Autowired
 	private CustomUserDetailsService userDetailsService;
-	
+
 	@Autowired
 	private CustomJwtAuthenticationFilter customJwtAuthenticationFilter;
-	
+
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-	
-	
-	
-	
-	public PasswordEncoder passwordEncoder(){
+
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	
+
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
-	
+
 	@Bean
 	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception
-	{
+	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-	
+
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
-		.authorizeRequests().antMatchers("/helloadmin").hasRole("ADMIN")
-		.antMatchers("/hellouser").hasAnyRole("USER","ADMIN")
-		.antMatchers("/authenticate").permitAll().anyRequest().authenticated()
-		.and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).
-		and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).
-		and().addFilterBefore(customJwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+		http.csrf().disable().authorizeRequests().antMatchers("/helloadmin").hasRole("ADMIN").antMatchers("/hellouser")
+				.hasAnyRole("USER", "ADMIN").antMatchers("/authenticate", "/h2-console/**", "/getVehicleRegByPlate/**")
+				.permitAll().anyRequest().authenticated().and().exceptionHandling()
+				.authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().headers().frameOptions().disable().and()
+				.addFilterBefore(customJwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
 	}
-
-
 
 }
