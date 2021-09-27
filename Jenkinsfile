@@ -21,8 +21,8 @@ pipeline {
 		}
 		stage('deploy'){
 			steps {
-				sh 'scp -i "${MANAGER_SSH_KEY}" docker-compose.yaml jenkins@11.0.2.50:~'
-            	sh 'ssh -i "${MANAGER_SSH_KEY}" jenkins@11.0.2.50 "docker stack deploy --compose-file docker-compose.yaml project-stack"'
+				sh 'scp -i "${MANAGER_SSH_KEY}" docker-compose.yaml jenkins@15.0.2.50:~'
+            	sh 'ssh -i "${MANAGER_SSH_KEY}" jenkins@15.0.2.50 "docker stack deploy --compose-file docker-compose.yaml project-stack"'
 			}
 		}
 	}
