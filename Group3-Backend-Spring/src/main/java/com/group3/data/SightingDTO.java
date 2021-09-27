@@ -1,15 +1,16 @@
 package com.group3.data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class SightingDTO {
 
 	private String streetName;
 	private LocalDateTime timeStamp;
-	private Double latitude;
-	private Double longitude;
+	private BigDecimal latitude;
+	private BigDecimal longitude;
 
-	public SightingDTO(String streetName, LocalDateTime timeStamp, Double latitude, Double longitude) {
+	public SightingDTO(String streetName, LocalDateTime timeStamp, BigDecimal latitude, BigDecimal longitude) {
 		super();
 		this.streetName = streetName;
 		this.timeStamp = timeStamp;
@@ -37,19 +38,19 @@ public class SightingDTO {
 		this.timeStamp = timeStamp;
 	}
 
-	public Double getLatitude() {
+	public BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 
