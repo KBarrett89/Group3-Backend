@@ -1,5 +1,6 @@
 package com.group3.data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,15 +14,15 @@ public class ANPRCamera {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long anprId;
+	private int anprId;
 	private String streetName;
-	private Double latitude;
-	private Double longitude;
+	private BigDecimal latitude;
+	private BigDecimal longitude;
 
 	@OneToMany(mappedBy = "ANPRPointId")
 	private List<ANPRObservations> ANPRObservations;
 
-	public ANPRCamera(String streetName, Double latitude, Double longitude) {
+	public ANPRCamera(String streetName, BigDecimal latitude, BigDecimal longitude) {
 		super();
 		this.streetName = streetName;
 		this.latitude = latitude;
@@ -32,11 +33,11 @@ public class ANPRCamera {
 
 	}
 
-	public Long getAnprId() {
+	public int getAnprId() {
 		return anprId;
 	}
 
-	public void setAnprId(Long anprId) {
+	public void setAnprId(int anprId) {
 		this.anprId = anprId;
 	}
 
@@ -48,19 +49,19 @@ public class ANPRCamera {
 		this.streetName = streetName;
 	}
 
-	public Double getLatitude() {
+	public BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 
