@@ -69,7 +69,7 @@ public class ANPRCamera {
 		return ANPRObservations;
 	}
 
-	public void setANPRObservations(List<ANPRObservations> aNPRObservations) {
-		ANPRObservations = aNPRObservations;
+	public void setANPRObservations(List<ANPRObservations> ANPRObservations) {
+		this.ANPRObservations = ANPRObservations;
 	}
 }

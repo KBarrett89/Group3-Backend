@@ -24,10 +24,7 @@ insert into `ANPRObservations`
         (`anprpoint_id`, `time_stamp`, `vehicle_registrationno`, `anprcamera_anpr_id`)
 values
         ('1', '2020-05-12T18:04:23+00:00', '1QW1 234', '1'),
-	('2', '2020-05-12T18:15:26+00:00', 'WE23 335', '1'),
-	('3', '2020-05-12T18:34:27+00:00', '1QW1 234', '1'),
-	('4', '2020-05-12T18:37:28+00:00', 'ER45 456', '2'),
-	('5', '2020-05-12T18:45:29+00:00', '1QW1 234', '2');
+	('2', '2020-05-12T18:15:26+00:00', 'WE23 335', '2');
 
 SELECT * FROM VEHICLE_REGISTRATION;
 SELECT * FROM CITIZEN;
