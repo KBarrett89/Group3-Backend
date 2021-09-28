@@ -1,4 +1,4 @@
-FROM maven:3-openjdk-11
+FROM maven:3-openjdk-14
 COPY . ./build
 WORKDIR /build
 RUN mvn install
