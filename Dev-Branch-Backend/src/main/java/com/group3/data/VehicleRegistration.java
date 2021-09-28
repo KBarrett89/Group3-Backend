@@ -2,7 +2,6 @@ package com.group3.data;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,11 +15,8 @@ public class VehicleRegistration {
 	private int registrationID;
 	private Date registrationDate;
 	private String vehicleRegistrationNO;
-	@Column(name = "carMake", unique = true)
 	private String make;
-	@Column(name = "carModel", unique = true)
 	private String model;
-	@Column(name = "carColour", unique = true)
 	private String colour;
 	private String forename;
 	private String surname;
