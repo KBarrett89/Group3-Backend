@@ -1,7 +1,5 @@
 package com.group3.data;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +15,10 @@ public class Citizen {
 	private String forename;
 	private String surname;
 	private String homeAddress;
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String sex;
 
-	public Citizen(Long citizenID, String placeOfBirth, String forename, String surname, Date dateOfBirth, String sex,
+	public Citizen(Long citizenID, String placeOfBirth, String forename, String surname, String dateOfBirth, String sex,
 			String homeAddress) {
 		super();
 		this.citizenID = citizenID;
@@ -32,7 +30,7 @@ public class Citizen {
 		this.homeAddress = homeAddress;
 	}
 
-	public Citizen(String placeOfBirth, String forename, String surname, Date dateOfBirth, String sex,
+	public Citizen(String placeOfBirth, String forename, String surname, String dateOfBirth, String sex,
 			String homeAddress) {
 		super();
 		this.placeOfBirth = placeOfBirth;
@@ -79,11 +77,11 @@ public class Citizen {
 		this.surname = surname;
 	}
 
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
