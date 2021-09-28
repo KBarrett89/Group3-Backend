@@ -6,4 +6,7 @@ services:
     ports:
     - target: 8080
       published: 8080
-
+    environment:
+      JWTSecret: ${DBUrl}
+      DBUrl: ${DBUrl}
+      DBPassword: ${DBPassword}
