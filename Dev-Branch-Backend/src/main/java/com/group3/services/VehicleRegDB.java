@@ -1,6 +1,5 @@
 package com.group3.services;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +70,7 @@ public class VehicleRegDB implements VehicleServices {
 
 		String forename = targetReg.getForename();
 		String address = targetReg.getAddress();
-		LocalDateTime dateOfBirth = targetReg.getDateOfBirth();
+		String dateOfBirth = targetReg.getDateOfBirth();
 
 		Citizen citizen = new Citizen();
 		List<Citizen> targetAddress = getCitizenByAddress(address);
@@ -124,7 +123,7 @@ public class VehicleRegDB implements VehicleServices {
 		return this.citizenRepo.findByHomeAddress(address);
 	}
 
-	public List<Citizen> getCitizenByDateOfBirth(LocalDateTime dateOfBirth) {
+	public List<Citizen> getCitizenByDateOfBirth(String dateOfBirth) {
 		return this.citizenRepo.findByDateOfBirth(dateOfBirth);
 	}
 

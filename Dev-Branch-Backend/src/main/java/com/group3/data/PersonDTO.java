@@ -1,19 +1,17 @@
 package com.group3.data;
 
-import java.time.LocalDateTime;
-
 public class PersonDTO {
 
 	private String forename;
 	private String surname;
 	private String address;
 	private String phoneNumber;
-	private LocalDateTime dateOfBirth;
+	private String dateOfBirth;
 	private String placeOfBirth;
 	private Long citizenID;
 	private String driverLicenceID;
 
-	public PersonDTO(String forename, String surname, String address, String phoneNumber, LocalDateTime dateOfBirth,
+	public PersonDTO(String forename, String surname, String address, String phoneNumber, String dateOfBirth,
 			String placeOfBirth, Long citizenID, String driverLicenceID) {
 		super();
 		this.forename = forename;
@@ -62,12 +60,12 @@ public class PersonDTO {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(String string) {
+		this.dateOfBirth = string;
 	}
 
 	public String getPlaceOfBirth() {

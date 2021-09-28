@@ -9,13 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.group3</groupId>
-	<artifactId>Group3-Backend-Spring</artifactId>
+	<artifactId>Dev-Branch-Backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Group3-Backend-Spring</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>14</java.version>
 	</properties>
 
 	<dependencies>
@@ -63,6 +63,14 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>  
+			<groupId>org.springframework.data</groupId>  
+			<artifactId>spring-data-jpa</artifactId>  
+						</dependency>  
+						<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
 	</dependencies>
 
 	<build>

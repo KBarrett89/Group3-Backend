@@ -1,6 +1,6 @@
 package com.group3.data;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,12 +12,12 @@ public class SubscriberRecords {
 	private String phoneNumber;
 	private String forename;
 	private String surname;
-	private LocalDateTime dateOfBirth;
+	private Date dateOfBirth;
 	private String address;
 	private String network;
 
-	public SubscriberRecords(String phoneNumber, String forename, String surname, LocalDateTime dateOfBirth,
-			String address, String network) {
+	public SubscriberRecords(String phoneNumber, String forename, String surname, Date dateOfBirth, String address,
+			String network) {
 		super();
 		this.phoneNumber = phoneNumber;
 		this.forename = forename;
@@ -55,11 +55,11 @@ public class SubscriberRecords {
 		this.surname = surname;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

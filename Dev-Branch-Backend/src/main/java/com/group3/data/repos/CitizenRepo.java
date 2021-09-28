@@ -1,6 +1,5 @@
 package com.group3.data.repos;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,6 +12,6 @@ public interface CitizenRepo extends JpaRepository<Citizen, Integer> {
 
 	List<Citizen> findByHomeAddress(String address);
 
-	List<Citizen> findByDateOfBirth(LocalDateTime dateOfBirth);
+	List<Citizen> findByDateOfBirth(String dateOfBirth);
 
 }

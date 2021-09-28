@@ -1,6 +1,6 @@
 package com.group3.data;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,11 +17,11 @@ public class Citizen {
 	private String forename;
 	private String surname;
 	private String homeAddress;
-	private LocalDateTime dateOfBirth;
+	private Date dateOfBirth;
 	private String sex;
 
-	public Citizen(Long citizenID, String placeOfBirth, String forename, String surname, LocalDateTime dateOfBirth,
-			String sex, String homeAddress) {
+	public Citizen(Long citizenID, String placeOfBirth, String forename, String surname, Date dateOfBirth, String sex,
+			String homeAddress) {
 		super();
 		this.citizenID = citizenID;
 		this.placeOfBirth = placeOfBirth;
@@ -32,7 +32,7 @@ public class Citizen {
 		this.homeAddress = homeAddress;
 	}
 
-	public Citizen(String placeOfBirth, String forename, String surname, LocalDateTime dateOfBirth, String sex,
+	public Citizen(String placeOfBirth, String forename, String surname, Date dateOfBirth, String sex,
 			String homeAddress) {
 		super();
 		this.placeOfBirth = placeOfBirth;
@@ -79,11 +79,11 @@ public class Citizen {
 		this.surname = surname;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

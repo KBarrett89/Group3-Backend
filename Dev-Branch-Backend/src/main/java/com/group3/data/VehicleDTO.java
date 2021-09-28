@@ -1,17 +1,17 @@
 package com.group3.data;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class VehicleDTO {
 
 	private String vehicleRegistrationNO;
-	private Long registrationID;
-	private LocalDateTime registrationDate;
+	private int registrationID;
+	private Date registrationDate;
 	private String make;
 	private String model;
 	private String colour;
 
-	public VehicleDTO(String vehicleRegistrationNO, Long registrationID, LocalDateTime registrationDate, String make,
+	public VehicleDTO(String vehicleRegistrationNO, int registrationID, Date registrationDate, String make,
 			String model, String colour) {
 		super();
 		this.vehicleRegistrationNO = vehicleRegistrationNO;
@@ -34,19 +34,19 @@ public class VehicleDTO {
 		this.vehicleRegistrationNO = vehicleRegistrationNO;
 	}
 
-	public Long getRegistrationID() {
+	public int getRegistrationID() {
 		return registrationID;
 	}
 
-	public void setRegistrationID(Long registrationID) {
+	public void setRegistrationID(int registrationID) {
 		this.registrationID = registrationID;
 	}
 
-	public LocalDateTime getRegistrationDate() {
+	public Date getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(LocalDateTime registrationDate) {
+	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 

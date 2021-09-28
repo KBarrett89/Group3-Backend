@@ -10,14 +10,14 @@ import javax.persistence.ManyToOne;
 public class ANPRObservations {
 
 	@Id
-	private Long ANPRPointId;
+	private int ANPRPointId;
 	private LocalDateTime timeStamp;
 	private String vehicleRegistrationNO;
 
 	@ManyToOne
 	private ANPRCamera ANPRCamera;
 
-	public ANPRObservations(Long ANPRPointId, LocalDateTime timeStamp, String vehicleRegistrationNO) {
+	public ANPRObservations(int ANPRPointId, LocalDateTime timeStamp, String vehicleRegistrationNO) {
 		super();
 		this.ANPRPointId = ANPRPointId;
 		this.timeStamp = timeStamp;
@@ -34,11 +34,11 @@ public class ANPRObservations {
 
 	}
 
-	public Long getANPRPointId() {
+	public int getANPRPointId() {
 		return ANPRPointId;
 	}
 
-	public void setANPRPointId(Long ANPRPointId) {
+	public void setANPRPointId(int ANPRPointId) {
 		this.ANPRPointId = ANPRPointId;
 	}
 
