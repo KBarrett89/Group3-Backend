@@ -4,6 +4,9 @@ pipeline {
 	environment{
 		DOCKER_ACCESS_TOKEN = credentials('DockerHubAccessToken')
 		MANAGER_SSH_KEY = credentials('managerSSH')
+		JWTSecret = credentials('JWTSecretT')
+		DBUrl = credentials('DBUrl')
+		DBPassword = credentials('DBPassword')
 	}
 
 	stages {
