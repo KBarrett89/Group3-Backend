@@ -4,6 +4,9 @@ pipeline {
 	environment{
 		DOCKER_ACCESS_TOKEN = credentials('DockerHubAccessToken')
 		MANAGER_SSH_KEY = credentials('managerSSH')
+		JWTSecret = credentials('JWTSecret')
+		DBUrl = credentials('DBUrl')
+		DBPassword = credentials('DBPassword')
 	}
 
 	stages {
@@ -21,8 +24,8 @@ pipeline {
 		}
 		stage('deploy'){
 			steps {
-				sh 'scp -i "${MANAGER_SSH_KEY}" docker-compose.yaml jenkins@15.0.2.50:~'
-            	sh 'ssh -i "${MANAGER_SSH_KEY}" jenkins@15.0.2.50 "docker stack deploy --compose-file docker-compose.yaml project-stack"'
+				sh 'scp -i "${MANAGER_SSH_KEY}" docker-compose.yaml jenkins@15.0.2.50:~/backend'
+            	sh 'ssh -i "${MANAGER_SSH_KEY}" jenkins@15.0.2.50 "docker stack deploy --compose-file ~/backend/docker-compose.yaml project-stack"'
 			}
 		}
 	}
