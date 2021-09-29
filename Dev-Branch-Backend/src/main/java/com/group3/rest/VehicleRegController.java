@@ -13,15 +13,28 @@ import com.group3.services.VehicleServices;
 public class VehicleRegController {
 
 	private VehicleServices regServices;
+	private String plateInfo;
+
+	public String getPlateInfo() {
+		return plateInfo;
+	}
+
+	public void setPlateInfo(String plateInfo) {
+		this.plateInfo = plateInfo;
+	}
 
 	public VehicleRegController(VehicleServices regServices) {
 		this.regServices = regServices;
+
 	}
 
 	@GetMapping("/getVehicleRegByPlate/{plate}")
 	public InfoDTO getVehicleRegByPlate(@PathVariable String plate) {
 		System.out.println(plate);
+		plateInfo = plate;
+
 		return regServices.getVehicleRegByPlate(plate);
 	}
 
 }
+
