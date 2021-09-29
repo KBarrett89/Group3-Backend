@@ -4,8 +4,8 @@ WORKDIR /build
 RUN mvn install
 
 FROM openjdk:14
+COPY ./EntryPoint.sh .
 COPY --from=0 /build/target/Dev-Branch-Backend-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]]
-
+ENTRYPOINT ["sh", "EntryPoint.sh"]]
 
