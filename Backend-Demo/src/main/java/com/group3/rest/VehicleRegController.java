@@ -19,7 +19,6 @@ public class VehicleRegController {
 		this.regServices = regServices;
 	}
 
-	@CrossOrigin
 	@GetMapping("/getVehicleRegByPlate/{plate}")
 	public InfoDTO getVehicleRegByPlate(@PathVariable String plate) {
 		System.out.println(plate);
