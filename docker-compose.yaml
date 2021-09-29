@@ -1,9 +1,32 @@
 version: "3.8"
+
+secrets:
+  JWTSecret:
+    external: true
+    name: JWTSecret
+  DBUrl:
+    external: true
+    name: DBUrl
+  DBPassword:
+    external: true
+    name: DBPassword
+  configFile:
+    external: true
+    name: configFile
+
 services:
   backend:
     image: sjknapp/group3-backend
     build: ./Dev-Branch-Backend
+    environment:
+    - DBUrl=${DBUrl}
+      DBPassword=${DBPassword}
+      JWTSecret=${JWTSecret}
     ports:
     - target: 8080
       published: 8080
+    secrets:
+    - JWTSecret
+    - DBUrl
+    - DBPassword
 
