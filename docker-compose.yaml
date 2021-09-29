@@ -18,6 +18,10 @@ services:
   backend:
     image: sjknapp/group3-backend
     build: ./Dev-Branch-Backend
+    environment:
+      DBUrl=${DBUrl}
+      DBPassword=${DBPassword}
+      JWTSecret=${JWTSecret}
     ports:
     - target: 8080
       published: 8080

@@ -1,4 +1,7 @@
 FROM maven:3-openjdk-14
+ENV DBUrl=${DBUrl}
+ENV DBPassword=${DBPassword}
+ENV JWTSecret=${JWTSecret}
 COPY . ./build
 WORKDIR /build
 RUN mvn install
