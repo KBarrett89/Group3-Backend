@@ -19,7 +19,7 @@ services:
     image: sjknapp/group3-backend
     build: ./Dev-Branch-Backend
     environment:
-      DBUrl=${DBUrl}
+    - DBUrl=${DBUrl}
       DBPassword=${DBPassword}
       JWTSecret=${JWTSecret}
     ports:
