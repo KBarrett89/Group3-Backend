@@ -10,6 +10,7 @@ import com.group3.services.VehicleServices;
 
 @RestController
 @CrossOrigin
+
 public class VehicleRegController {
 
 	private VehicleServices regServices;
