@@ -2,7 +2,7 @@ version: "3.8"
 services:
   backend:
     image: sjknapp/group3-backend
-    build: ./Dev-Branch-Backend
+    build: ./Backend-Demo
     ports:
     - target: 8080
       published: 8080
