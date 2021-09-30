@@ -7,6 +7,7 @@ import com.group3.model.UserTable;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserTable, Long> {
+
 	UserTable findByUsername(String username);
 
 }
