@@ -27,7 +27,6 @@ import com.group3.config.CustomUserDetailsService;
 import com.group3.config.JwtUtil;
 import com.group3.model.AuthenticationRequest;
 import com.group3.model.AuthenticationResponse;
-import com.group3.model.UserDTO;
 
 import io.jsonwebtoken.impl.DefaultClaims;
 
@@ -85,10 +84,5 @@ public class AuthenticationController {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
 		return "redirect:/login?logout";
-	}
-
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
-		return ResponseEntity.ok(userDetailsService.save(user));
 	}
 }
