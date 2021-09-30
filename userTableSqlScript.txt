@@ -1,8 +1,0 @@
-insert into `users` 
-	(`username`, `password`, `role`) 
-values 
-	('admin', 'WHYAT ARE MY GROUP COMFORTABLE INPUTTING THEN B ENCRYPT IT WITH DEFAULT EXP 10', 'ROLE_ADMIN')
-	('sarah', 'SARAH_PASSS ENCRYPT', 'ROLE_USER');
-
-
-SELECT * FROM users;
