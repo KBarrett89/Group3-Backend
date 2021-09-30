@@ -30,7 +30,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-
+	
+	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
