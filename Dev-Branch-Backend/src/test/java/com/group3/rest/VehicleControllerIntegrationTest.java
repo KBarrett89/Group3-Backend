@@ -39,7 +39,7 @@ public class VehicleControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper mapper;
 
-	@Test
+	/*@Test
 	void testFindByRegPlate() throws Exception {
 		RequestBuilder request = get("/getVehicleRegByPlate/1QW1 234");
 
@@ -76,6 +76,6 @@ public class VehicleControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(testAsJSON);
 
 		this.mockMVC.perform(request).andExpect(checkStatus).andExpect(checkBody);
-	}
+	}*/
 
 }
