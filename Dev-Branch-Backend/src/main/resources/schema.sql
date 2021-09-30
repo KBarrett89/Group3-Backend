@@ -51,4 +51,3 @@ create table anprobservations (
 	vehicle_registrationno varchar(100),
 	anprcamera_anpr_id int
 );
-	
