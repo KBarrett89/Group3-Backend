@@ -14,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,6 +30,7 @@ import com.group3.data.SightingDTO;
 import com.group3.data.VehicleDTO;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@ContextConfiguration
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Sql(scripts = { "classpath:schema.sql", "classpath:data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
@@ -39,8 +42,10 @@ public class VehicleControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper mapper;
 
-	/*@Test
+	@Test
+	@WithMockUser
 	void testFindByRegPlate() throws Exception {
+
 		RequestBuilder request = get("/getVehicleRegByPlate/1QW1 234");
 
 		ResultMatcher checkStatus = status().isOk();
@@ -76,6 +81,6 @@ public class VehicleControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(testAsJSON);
 
 		this.mockMVC.perform(request).andExpect(checkStatus).andExpect(checkBody);
-	}*/
+	}
 
 }
