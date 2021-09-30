@@ -58,14 +58,14 @@ public class VehicleControllerIntegrationTest {
 		BigDecimal longitude1 = new BigDecimal("654.89");
 		BigDecimal latitude2 = new BigDecimal("90.78");
 		BigDecimal longitude2 = new BigDecimal("654.89");
-		BigDecimal latitude3 = new BigDecimal("90.78");
-		BigDecimal longitude3 = new BigDecimal("654.89");
+		BigDecimal latitude3 = new BigDecimal("100.78");
+		BigDecimal longitude3 = new BigDecimal("667.5");
 
 		PersonDTO pDTO = new PersonDTO("Jon", "Smith", "13 Baker Street", "07924332432", "2002-01-01", "London", 2L,
 				"300201");
 		SightingDTO sDTO1 = new SightingDTO("Watling Street", stamp1, latitude1, longitude1);
 		SightingDTO sDTO2 = new SightingDTO("Watling Street", stamp2, latitude2, longitude2);
-		SightingDTO sDTO3 = new SightingDTO("Watling Street", stamp3, latitude3, longitude3);
+		SightingDTO sDTO3 = new SightingDTO("Edgware road", stamp3, latitude3, longitude3);
 		VehicleDTO vDTO = new VehicleDTO("1QW1 234", 1, objDate, "Audi", "A5", "Black");
 
 		List<SightingDTO> sightingList = new ArrayList<>();
