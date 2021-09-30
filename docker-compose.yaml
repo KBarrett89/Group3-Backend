@@ -18,7 +18,7 @@ services:
   backend:
     image: sjknapp/group3-backend
 
-    build: ./Backend-Demo
+    build: ./Dev-Branch_Backend
     environment:
     - DBUrl=${DBUrl}
       DBPassword=${DBPassword}
